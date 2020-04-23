@@ -23,7 +23,7 @@ public class KyokoControllerScript : MonoBehaviour
     static int walkState = Animator.StringToHash("Base Layer.Walk");
     static int runState = Animator.StringToHash("Base Layer.Run");
     static int jumpState = Animator.StringToHash("Base Layer.Jump");
-    static int attack1State = Animator.StringToHash("Base Layer.AttackChop");
+    static int attack1ChopState = Animator.StringToHash("Base Layer.Attack1Chop");
     static int attack2State = Animator.StringToHash("Base Layer.AttackGutPunch");
 
     // Start is called before the first frame update
@@ -50,7 +50,7 @@ public class KyokoControllerScript : MonoBehaviour
             Debug.Log("run");
         if (currentState == jumpState)
             Debug.Log("jump");
-        if (currentState == attack1State)
+        if (currentState == attack1ChopState)
             Debug.Log("chop");
         if (currentState == attack2State)
             Debug.Log("gut punch");
