@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0a5230f2cc0a0ad4aa701f0d7e6ce98c
+guid: b8587b80e5f70ec4880f67bae7cccc1c
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -42,12 +42,12 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 0
-  alignment: 7
-  spritePivot: {x: 0.9401839, y: 0.028490055}
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -86,12 +86,12 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: f8b732ba973e4e040ac630530e053e97
+    spriteID: 366a85ef3eefdeb46a17e5130187b07a
     vertices: []
     indices: 
     edges: []
     weights: []
-  spritePackingTag: Kyoko
+  spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
