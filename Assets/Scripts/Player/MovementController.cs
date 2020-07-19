@@ -20,7 +20,7 @@ namespace Assets.Scripts
         private float movementSpeed;
         private bool facingRight;
         private new Rigidbody rigidbody;
-        private readonly AttackController attackScript;
+        private readonly AttackController attackController;
 
         void Start()
         {
