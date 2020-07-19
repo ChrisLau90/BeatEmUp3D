@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class KyokoControllerScript : MonoBehaviour
 {
@@ -8,8 +6,8 @@ public class KyokoControllerScript : MonoBehaviour
     public float attackMovementSpeed;
     public float xMin, xMax, zMin, zMax;
 
-    public GameObject attackChopHitBox, attackGutPunchHitBox;
-    public Sprite attackChopHitFrame, attackGutPunchHitFrame;
+    public GameObject attackChopHitBox;
+    public Sprite attackChopHitFrame;
 
     private float movementSpeed;
     private bool facingRight;
@@ -17,14 +15,14 @@ public class KyokoControllerScript : MonoBehaviour
     private Animator animator;
     private AnimatorStateInfo currentStateInfo;
     private SpriteRenderer currentSprite;
-    
+
     static int currentState;
     static int idleState = Animator.StringToHash("Base Layer.Idle");
     static int walkState = Animator.StringToHash("Base Layer.Walk");
     static int runState = Animator.StringToHash("Base Layer.Run");
     static int jumpState = Animator.StringToHash("Base Layer.Jump");
-    static int attack1ChopState = Animator.StringToHash("Base Layer.Attack1Chop");
-    static int attack2State = Animator.StringToHash("Base Layer.AttackGutPunch");
+    static int attack1ChopState = Animator.StringToHash("Base Layer.Attack01Chop");
+    static int attack2SnapKickState = Animator.StringToHash("Base Layer.Attack02SnapKick");
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +50,7 @@ public class KyokoControllerScript : MonoBehaviour
             Debug.Log("jump");
         if (currentState == attack1ChopState)
             Debug.Log("chop");
-        if (currentState == attack2State)
+        if (currentState == attack2SnapKickState)
             Debug.Log("gut punch");
     }
 
@@ -80,7 +78,7 @@ public class KyokoControllerScript : MonoBehaviour
         animator.SetFloat("Speed", rigidbody.velocity.sqrMagnitude);
 
         // Combo Attack
-        if (Input.GetMouseButton(0))
+        if (Input.GetButton("LightAttack"))
             animator.SetBool("Attack", true);
         else
             animator.SetBool("Attack", false);
@@ -89,16 +87,11 @@ public class KyokoControllerScript : MonoBehaviour
         {
             attackChopHitBox.gameObject.SetActive(true);
         }
-        else if (attackGutPunchHitFrame == currentSprite.sprite)
-        {
-            attackGutPunchHitBox.gameObject.SetActive(true);
-        }
         else
         {
             attackChopHitBox.gameObject.SetActive(false);
-            attackGutPunchHitBox.gameObject.SetActive(false);
         }
-            
+
     }
 
     private void Flip()
