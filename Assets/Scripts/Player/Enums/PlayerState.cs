@@ -3,7 +3,7 @@
 	public enum PlayerState
 	{
 		Idle,
-		Moving,
+		Walk,
 		Jumping,
 		Attacking,
 		Block,

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Assets.Scripts.Player;
+using Assets.Scripts.Player.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,13 +22,25 @@ namespace Assets.Scripts
         private float movementSpeed;
         private bool facingRight;
         private new Rigidbody rigidbody;
-        private readonly AttackController attackController;
+        private PlayerStateController playerState;
 
         void Start()
         {
+            playerState = GetComponent<PlayerStateController>();
+            playerState.SetState(PlayerState.Idle);
             rigidbody = GetComponent<Rigidbody>();
             movementSpeed = walkMovementSpeed;
             facingRight = true;
+        }
+
+        private void Update()
+        {
+            // Control Speed Based on Commands
+            if (playerState.currentState == PlayerState.Idle 
+                || playerState.currentState == PlayerState.Walk)
+                movementSpeed = walkMovementSpeed;
+            else
+                movementSpeed = 0;
         }
 
         private void FixedUpdate()
