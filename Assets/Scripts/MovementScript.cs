@@ -9,12 +9,18 @@ namespace Assets.Scripts
 {
     public class MovementScript : MonoBehaviour
     {
+        //movement
         public float walkMovementSpeed;
-        public float xMin, xMax, zMin, zMax;
+        public float xMin, xMax, zMin, zMax; //how to remove these?
+
+        //jumping
+        public float fallMultiplier = 2.5f;
+        public float lowJumpMultiplier = 2f;
 
         private float movementSpeed;
         private bool facingRight;
-        private Rigidbody rigidbody;
+        private new Rigidbody rigidbody;
+        private readonly AttackScript attackScript;
 
         void Start()
         {

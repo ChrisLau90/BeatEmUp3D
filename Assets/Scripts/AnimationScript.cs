@@ -11,16 +11,16 @@ namespace Assets.Scripts
     {
         private Animator animator;
         private AnimatorStateInfo currentStateInfo;
-        private SpriteRenderer currentSprite;
-        private Rigidbody rigidbody;
+        private new Rigidbody rigidbody;
+        private AttackScript attackScript; //rename this
 
         static int currentState;
 
         private void Start()
         {
-            currentSprite = GetComponent<SpriteRenderer>();
             rigidbody = GetComponent<Rigidbody>();
             animator = GetComponent<Animator>();
+            attackScript = GetComponent<AttackScript>();
         }
 
         // Update is called once per frame
@@ -33,6 +33,7 @@ namespace Assets.Scripts
         private void FixedUpdate()
         {
             animator.SetFloat("Speed", rigidbody.velocity.sqrMagnitude);
+            animator.SetBool("Attack", attackScript.isAttacking);
         }
     }
 }
