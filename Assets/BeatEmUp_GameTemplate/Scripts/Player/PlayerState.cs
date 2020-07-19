@@ -2,7 +2,7 @@
 using System.Collections;
 
 //this script decides the order of imporance of playerstates. For Example you can't attack if you are being hit, therefore an attack state while your are hit is ignored
-public class PlayerState : MonoBehaviour {
+public class PlayerState1 : MonoBehaviour {
 
 	public PLAYERSTATE currentState = PLAYERSTATE.IDLE;
 

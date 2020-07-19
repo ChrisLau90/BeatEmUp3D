@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts
 {
-    public class AnimationScript : MonoBehaviour
+    public class AnimationController : MonoBehaviour
     {
         private Animator animator;
         private AnimatorStateInfo currentStateInfo;
         private new Rigidbody rigidbody;
-        private AttackScript attackScript; //rename this
+        private AttackController attackController;
 
         static int currentState;
 
@@ -20,10 +15,9 @@ namespace Assets.Scripts
         {
             rigidbody = GetComponent<Rigidbody>();
             animator = GetComponent<Animator>();
-            attackScript = GetComponent<AttackScript>();
+            attackController = GetComponent<AttackController>();
         }
 
-        // Update is called once per frame
         void Update()
         {
             currentStateInfo = animator.GetCurrentAnimatorStateInfo(0);
@@ -33,7 +27,7 @@ namespace Assets.Scripts
         private void FixedUpdate()
         {
             animator.SetFloat("Speed", rigidbody.velocity.sqrMagnitude);
-            animator.SetBool("Attack", attackScript.isAttacking);
+            animator.SetBool("Attack", attackController.isAttacking);
         }
     }
 }

@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
-    public class MovementScript : MonoBehaviour
+    public class MovementController : MonoBehaviour
     {
         //movement
         public float walkMovementSpeed;
@@ -20,7 +20,7 @@ namespace Assets.Scripts
         private float movementSpeed;
         private bool facingRight;
         private new Rigidbody rigidbody;
-        private readonly AttackScript attackScript;
+        private readonly AttackController attackScript;
 
         void Start()
         {

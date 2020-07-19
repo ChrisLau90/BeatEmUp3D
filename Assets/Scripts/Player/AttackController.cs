@@ -8,7 +8,7 @@ using UnityEngine;
 namespace Assets.Scripts
 {
     //Rename this
-    public class AttackScript : MonoBehaviour
+    public class AttackController : MonoBehaviour
     {
         public bool isAttacking;
 
