@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 [RequireComponent (typeof(Rigidbody2D))]
-[RequireComponent (typeof(PlayerState))]
+[RequireComponent (typeof(PlayerState1))]
 public class PlayerMovement : MonoBehaviour {
 
 	public SpriteRenderer GFX;
@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour {
 	public Vector2 inputDirection;
 
 	private PlayerAnimator animator;
-	private PlayerState playerState;
+	private PlayerState1 playerState;
 	private AudioPlayer audioPlayer;
 	private bool isDead = false;
 	private float screenEdgeHorizontal = 80f; //the distance between the player and the horizontal edge of the screen
@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour {
 	void Awake() {
 		rb = GetComponent<Rigidbody2D> ();
 		animator = GetComponentInChildren<PlayerAnimator> ();
-		playerState = GetComponent<PlayerState> ();
+		playerState = GetComponent<PlayerState1> ();
 		currentDirection = DIRECTION.Right;
 		isGrounded = true;
 	}

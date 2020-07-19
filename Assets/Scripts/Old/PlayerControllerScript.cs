@@ -14,7 +14,7 @@ public class PlayerControllerScript : MonoBehaviour
 
     private float movementSpeed;
     private bool facingRight;
-    private Rigidbody rigidbody;
+    private new Rigidbody rigidbody;
     private Animator animator;
     private AnimatorStateInfo currentStateInfo;
     private SpriteRenderer currentSprite;

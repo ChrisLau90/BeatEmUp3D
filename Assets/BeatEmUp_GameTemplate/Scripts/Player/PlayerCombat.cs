@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-[RequireComponent (typeof(PlayerState))]
+[RequireComponent (typeof(PlayerState1))]
 public class PlayerCombat : MonoBehaviour {
 
 	[Header("Attack Data")]
@@ -20,7 +20,7 @@ public class PlayerCombat : MonoBehaviour {
 	private bool continuePunchCombo; //true if a punch combo needs to continue
 	private bool continueKickCombo; //true if the a kick combo needs to  continue
 	private PlayerAnimator animator; //link to the animator component
-	private PlayerState playerState; //the state of the player
+	private PlayerState1 playerState; //the state of the player
 	private float LastAttackTime = 0; //time of the last attack
 	private bool targetHit; //true if the last hit has hit a target
 	private bool ChangeDirDuringCombo = false; //allows player to change direction at the start of an attack
@@ -47,7 +47,7 @@ public class PlayerCombat : MonoBehaviour {
 
 	private void Awake() {
 		animator = GetComponentInChildren<PlayerAnimator> ();
-		playerState = GetComponent<PlayerState> ();
+		playerState = GetComponent<PlayerState1> ();
 
 		if (animator == null) { 
 			Debug.Log ("No player animator found assigned in gameobject " + gameObject.name);

@@ -29,11 +29,6 @@ namespace Assets.Scripts
             facingRight = true;
         }
 
-        private void Update()
-        {
-            movementSpeed = walkMovementSpeed;
-        }
-
         private void FixedUpdate()
         {
             // Movement
