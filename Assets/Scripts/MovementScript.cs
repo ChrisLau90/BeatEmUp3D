@@ -15,7 +15,14 @@ namespace Assets.Scripts
         private float movementSpeed;
         private bool facingRight;
         private Rigidbody rigidbody;
-        
+
+        void Start()
+        {
+            rigidbody = GetComponent<Rigidbody>();
+            movementSpeed = walkMovementSpeed;
+            facingRight = true;
+        }
+
         private void Update()
         {
             movementSpeed = walkMovementSpeed;
