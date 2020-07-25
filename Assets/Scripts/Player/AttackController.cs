@@ -30,7 +30,7 @@ namespace Assets.Scripts
 
         private void LightAttack()
         {
-            //play animation
+            //play animation - MOVE TO ANIMATIONCONTROLLER?
             animator.SetTrigger("LightAttack");
 
             //detect enimies within range of attack
