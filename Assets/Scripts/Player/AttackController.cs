@@ -12,6 +12,9 @@ namespace Assets.Scripts
     {
         private Animator animator;
 
+        public Transform lightAttackBox;
+        public LayerMask enemyLayers;
+
         private void Start()
         {
             animator = GetComponent<Animator>();
@@ -27,7 +30,33 @@ namespace Assets.Scripts
 
         private void LightAttack()
         {
+            //play animation
             animator.SetTrigger("LightAttack");
+
+            //detect enimies within range of attack
+            var hitEnemies = Physics.OverlapBox(
+                lightAttackBox.transform.position, 
+                lightAttackBox.localScale,
+                Quaternion.identity, 
+                enemyLayers
+            );
+
+            //damage them
+            foreach(var enemy in hitEnemies)
+            {
+                Debug.Log(enemy.name + " attacked");
+            }
         }
+
+        //private void OnDrawGizmosSelected()
+        //{
+        //    if (lightAttackBox == null)
+        //        return;
+
+        //    Gizmos.DrawWireCube(
+        //        lightAttackBox.transform.position,
+        //        lightAttackBox.localScale / 2
+        //    );
+        //}
     }
 }
