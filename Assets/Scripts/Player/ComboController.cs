@@ -34,8 +34,8 @@ namespace Assets.Scripts.Player
         ComboInput lastInput = null;
         List<int> currentCombos = new List<int>();
         
-        float timer = 0;
-        float leewayTime = 0;
+        float attackTimer = 0;
+        float leewayTimer = 0;
         bool shouldSkipFrame = false;
 
         private void Start()
@@ -62,8 +62,8 @@ namespace Assets.Scripts.Player
         {
             if (currentAttack != null)
             {
-                if (timer > 0)
-                    timer -= Time.deltaTime;
+                if (attackTimer > 0)
+                    attackTimer -= Time.deltaTime;
                 else
                     currentAttack = null;
                 return;
@@ -71,8 +71,8 @@ namespace Assets.Scripts.Player
 
             if (currentCombos.Count > 0)
             {
-                leewayTime += Time.deltaTime;
-                if (leewayTime >= comboLeeway)
+                leewayTimer += Time.deltaTime;
+                if (leewayTimer >= comboLeeway)
                 {
                     if (lastInput != null)
                     {
@@ -85,7 +85,7 @@ namespace Assets.Scripts.Player
             }
             else
             {
-                leewayTime = 0;
+                leewayTimer = 0;
             }
 
             ComboInput currentInput = null;
@@ -107,7 +107,7 @@ namespace Assets.Scripts.Player
                 Combo combo = combos[currentCombos[i]];
                 if (combo.ShouldContinueCombo(currentInput))
                 {
-                    leewayTime = 0;
+                    leewayTimer = 0;
                 } 
                 else
                 {
@@ -130,7 +130,7 @@ namespace Assets.Scripts.Player
                 if (combos[i].ShouldContinueCombo(currentInput))
                 {
                     currentCombos.Add(i);
-                    leewayTime = 0;
+                    leewayTimer = 0;
                 }
             }
 
@@ -147,7 +147,7 @@ namespace Assets.Scripts.Player
 
         private void ResetCombos()
         {
-            leewayTime = 0;
+            leewayTimer = 0;
             for (int i = 0; i < currentCombos.Count; i++)
             {
                 Combo combo = combos[currentCombos[i]];
@@ -160,7 +160,7 @@ namespace Assets.Scripts.Player
         private void Attack(Attack attack)
         {
             currentAttack = attack;
-            timer = attack.length;
+            attackTimer = attack.length;
             animator.Play(attack.name, -1, 0);
         }
 
