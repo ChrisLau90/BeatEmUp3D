@@ -10,19 +10,24 @@ namespace Assets.Scripts
     //Rename this
     public class AttackController : MonoBehaviour
     {
-        public bool isAttacking;
+        private Animator animator;
 
         private void Start()
         {
-            isAttacking = false;
+            animator = GetComponent<Animator>();
         }
 
         private void Update()
         {
-            if (Input.GetButton("LightAttack"))
-                isAttacking = true;
-            else
-                isAttacking = false;
+            if (Input.GetButtonDown("LightAttack"))
+            {
+                LightAttack();
+            }
+        }
+
+        private void LightAttack()
+        {
+            animator.SetTrigger("LightAttack");
         }
     }
 }

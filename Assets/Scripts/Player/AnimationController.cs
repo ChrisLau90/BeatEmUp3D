@@ -7,7 +7,7 @@ namespace Assets.Scripts
         private Animator animator;
         private AnimatorStateInfo currentStateInfo;
         private new Rigidbody rigidbody;
-        private AttackController attackController;
+        //private AttackController attackController;
 
         static int currentState;
 
@@ -15,7 +15,7 @@ namespace Assets.Scripts
         {
             rigidbody = GetComponent<Rigidbody>();
             animator = GetComponent<Animator>();
-            attackController = GetComponent<AttackController>();
+            //attackController = GetComponent<AttackController>();
         }
 
         void Update()
@@ -27,7 +27,7 @@ namespace Assets.Scripts
         private void FixedUpdate()
         {
             animator.SetFloat("Speed", rigidbody.velocity.sqrMagnitude);
-            animator.SetBool("Attack", attackController.isAttacking);
+            //animator.SetBool("Attack", attackController.isAttacking);
         }
     }
 }
